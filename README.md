@@ -17,6 +17,14 @@ MNRAS, 453, 3043
 Steps
 --------
 1. Project all the particles (x/y/z -> vec2pix -> HEALPix maps)
-2. Run make_kappaslices.py to convert shells into local convergence
-3. Run heal2psis.x to compute the first and second derivatives
-4. Run graytrix.x
+2. Run make_kappaslices.py to convert shells into local convergence<br>
+   ```python
+   python make_kappaslices.py ${dir_in} ${dir_out} ${cambpar}
+   ```
+3. Run heal2psis.x to compute the first and second derivatives<br>
+   ```python
+   ./heal2psi.x -nside ${nside} -lmax ${lmax} -infile ${inputfilename} -outfile ${outputfile}```
+4. Run graytrix.x<BR>
+  ```python
+  ./graytrix.x -nres ${nres} -d ${outdir} -om ${omegamatter} -th ${shellwidth} -nt ${OMP_NUM_THREADS} -f ${prefix} < infile
+  ```
