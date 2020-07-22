@@ -12,3 +12,11 @@ PASJ, 67, 34 (2015)
 2. Probing cosmology with weak lensing selected clusters I: Halo approach and all-sky simulations
 Masato Shirasaki, Takashi Hamana, Naoki Yoshida
 MNRAS, 453, 3043
+
+
+Steps
+--------
+1. Project all the particles (x/y/z -> vec2pix -> HEALPix maps)
+2. Run make_kappaslices.py to convert shells into local convergence
+3. Run heal2psis.x to compute the first and second derivatives
+4. Run graytrix.x
