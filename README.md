@@ -1,5 +1,5 @@
 # graytrix
-(I am not the code developer, I just wrote the helper functions)
+(I am not the original code developer, I just wrote the helper functions)
 
 Graytrix is written by T. Hamana and the original page can be found here http://th.nao.ac.jp/MEMBER/hamanatk/GRayTrix/
 
@@ -28,3 +28,11 @@ Steps
    ```python
    ./graytrix.x -nres ${nres} -d ${outdir} -om ${omegamatter} -th ${shellwidth} -nt ${OMP_NUM_THREADS} -f ${prefix} < infile
    ```
+   where<BR>
+   ```nres```: HEALPix resolution 4096->12, 8192->13<BR>
+   ```outdir```: output directory<BR>
+   ```omegamatter```: \Omega_{\rm m}<BR>
+   ```shellwidth```: width of the shells in Mpc/h<BR>
+   ```OMP_NUM_THREAD```: number of threads to use<BR>
+   ```prefix```: prefix of the output files<BR>
+   
