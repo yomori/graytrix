@@ -24,7 +24,7 @@ Steps
 3. Run heal2psis.x to compute the first and second derivatives<br>
    ```python
    ./heal2psi.x -nside ${nside} -lmax ${lmax} -infile ${inputfilename} -outfile ${outputfile}```
-4. Run graytrix.x<BR>
-  ```python
-  ./graytrix.x -nres ${nres} -d ${outdir} -om ${omegamatter} -th ${shellwidth} -nt ${OMP_NUM_THREADS} -f ${prefix} < infile
-  ```
+4. Run graytrix.x
+   ```python
+   ./graytrix.x -nres ${nres} -d ${outdir} -om ${omegamatter} -th ${shellwidth} -nt ${OMP_NUM_THREADS} -f ${prefix} < infile
+   ```
