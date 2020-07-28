@@ -8,12 +8,13 @@ import numpy as np
 import healpy as hp
 import camb
 from camb import model, initialpower
+import sys
 
 h  = 0.6777
 
-dir_in   =
-dir_out  = 
-cambpar  = 'mdpl2_params.ini'
+dir_in   = sys.argv[1]
+dir_out  = sys.argv[2]
+cambpar  = sys.argv[3]#'mdpl2_params.ini'
 
 pars     = camb.read_ini(cambpar)
 results  = camb.get_results(pars)
@@ -44,7 +45,7 @@ ll=np.arange(6001)
 
 
 
-for i in range(0,Nsnap):
+for i in range(0,4):
     print("adding slice %d zmid=%.3f zuedge=%.3f"%(i,midzs[i],uuzs[i]))
     print(i)
     print(1./(1+midzs[i]))
@@ -58,12 +59,15 @@ for i in range(0,Nsnap):
     chubble0 = 2.9979e3 # 
     nside    = 8192 
 
+    # note: comoving radial distance is the SAME as comoving angular diameter distance in a flat universe
+    # Don't confuse with the "standard" angular diamter distance, which is dA=chi/(1+z)
+    # A good reference http://www.tapir.caltech.edu/~chirata/ph217/lec02.pdf 
     print (chisuu[i],chisll[i])
     dlplane  = 0.75*((chisuu[i]*h)**4-(chisll[i]*h)**4)/((chisuu[i]*h)**3-(chisll[i]*h)**3) # comoving radial distance NOT comoving angular diameter distance
     zlens    = results.redshift_at_comoving_radial_distance(dlplane/h)
     alens    = 1./(zlens+1.0)
     
-    norm0    = 1.5*omm*boxlen**3*hp.nside2npix(nside)/(alens*(dlplane/(1+zlens))*chubble0**2*npart**3*4.0*np.pi)
+    norm0    = 1.5*omm*boxlen**3*hp.nside2npix(nside)/(alens*(dlplane)*chubble0**2*npart**3*4.0*np.pi)
     print("alens %f"%alens)
     print("chiuu %f"%(chisuu[i]*h))
     print("chill %f"%(chisll[i]*h)) 
