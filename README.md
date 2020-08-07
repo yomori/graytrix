@@ -36,4 +36,4 @@ Steps
    ```OMP_NUM_THREAD```: number of threads to use<BR>
    ```prefix```: prefix of the output files<BR>
 
-WARNING: I have been finding that ifort gives unknown spurious results resulting in random corrupted healpix files. This can be avoided by compiling gfortran.
+WARNING: I have been finding that ifort gives unknown spurious results resulting in random corrupted healpix files. This can be avoided by compiling with gfortran.
