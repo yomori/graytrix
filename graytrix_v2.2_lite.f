@@ -167,6 +167,8 @@ c      write(*,*)narg
 
 !!! Healpix related
       nres=13
+      nside=2**nres
+      lmax=3*nside
 
 !!! output file names
       outdir='DATA'
@@ -204,6 +206,8 @@ c      write(*,*)narg
             read(arg,*)pidw
          case ('-nt')
             read(arg,*)nopenmp
+         case ('-lmax')
+            read(arg,*)lmaxin
          end select
       enddo
       pidw=0.5*pidw ! a numerical trick: d^-pidw = (d*d)^(-0.5*pidw)
@@ -214,7 +218,7 @@ c      write(*,*)narg
 !!! Healpix related
       nside=2**nres
       npix=12_i8b*nside*nside
-      lmax=3*nside
+      lmax=lmaxin
       write(*,*)'##### Healpix parameters:'
       write(*,*)'# nres  =',nres
       write(*,*)'# nside =',nside
