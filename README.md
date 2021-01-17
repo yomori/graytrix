@@ -37,3 +37,8 @@ Steps
    ```prefix```: prefix of the output files<BR>
 
 WARNING: I have been finding that ifort gives unknown spurious results resulting in random corrupted healpix files. This can be avoided by compiling with gfortran.
+
+5. Once the outputfiles are written, one can degrade the maps:
+   ```python
+   ./degrade_nsideout.x -infile ${infile}
+   ```
